@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Entry Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 30px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            margin-top: 20px;
+            text-align: center;
+            color: green;
+        }
+
+        .success-message a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .success-message a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter User Data</h2>
+        <form method="POST" action="/">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        {% if success %}
+        <div class="success-message">
+            <p>✅ Data saved and appended!</p>
+            <a href="/download">📄 Download Full PDF</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
